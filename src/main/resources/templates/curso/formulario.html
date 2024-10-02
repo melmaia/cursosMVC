@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulário de Curso</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${curso.id == null} ? 'Adicionar Curso' : 'Editar Curso'"></h1>
+    <form th:action="@{${curso.id == null} ? '/cursos' : '/cursos/atualizar/{id}(id=${curso.id})'}" th:object="${curso}" method="post">
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" th:field="*{nome}" required>
+        </div>
+        <div class="mb-3">
+            <label for="descricao" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="descricao" th:field="*{descricao}" required>
+        </div>
+        <div class="mb-3">
+            <label for="instrutor" class="form-label">Instrutor</label>
+            <input type="text" class="form-control" id="instrutor" th:field="*{instrutor}" required>
+        </div>
+        <div class="mb-3">
+            <label for="duracao" class="form-label">Duração (horas)</label>
+            <input type="number" class="form-control" id="duracao" th:field="*{duracao}" required>
+        </
