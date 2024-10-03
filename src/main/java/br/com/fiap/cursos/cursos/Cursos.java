@@ -16,5 +16,15 @@ public class Cursos {
     private String descricao;
     private String instrutor;
     private int duracao;
+    public void setId(Long id2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    }
     
 }
+
+
+// http://localhost:8080/cursos
+// http://localhost:8080/cursos/novo
+// http://localhost:8080/cursos/editar/1
+// http://localhost:8080/cursos/deletar/1

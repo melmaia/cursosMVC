@@ -21,13 +21,13 @@ public class CursoController {
     public String listarCursos(Model model) {
         List<Cursos> cursos = cursoService.listarCursos();
         model.addAttribute("cursos", cursos);
-        return "lista";
+        return "curso/lista"; // Ajustado para referenciar a lista.html na pasta curso
     }
 
     @GetMapping("/novo")
     public String mostrarFormularioDeNovoCurso(Model model) {
         model.addAttribute("curso", new Cursos());
-        return "formulario";
+        return "curso/formulario"; // Ajustado para referenciar formulario.html na pasta curso
     }
 
     @PostMapping
@@ -40,7 +40,7 @@ public class CursoController {
     public String mostrarFormularioDeEditarCurso(@PathVariable Long id, Model model) {
         Cursos curso = cursoService.buscarCursoPorId(id);
         model.addAttribute("curso", curso);
-        return "curso/formulario";
+        return "curso/formulario"; // Mantido como está, referenciando formulario.html
     }
 
     @PostMapping("/atualizar/{id}")
