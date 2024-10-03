@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
 
 @Controller
 @RequestMapping("/cursos")
@@ -22,13 +21,13 @@ public class CursoController {
     public String listarCursos(Model model) {
         List<Cursos> cursos = cursoService.listarCursos();
         model.addAttribute("cursos", cursos);
-        return "curso/lista";
+        return "lista";
     }
 
     @GetMapping("/novo")
     public String mostrarFormularioDeNovoCurso(Model model) {
         model.addAttribute("curso", new Cursos());
-        return "curso/formulario";
+        return "formulario";
     }
 
     @PostMapping
