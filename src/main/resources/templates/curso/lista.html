@@ -27,10 +27,7 @@
                 <td th:text="${curso.descricao}"></td>
                 <td th:text="${curso.instrutor}"></td>
                 <td th:text="${curso.duracao}"></td>
-                <td>
-                    <a class="btn btn-warning" th:href="@{/cursos/editar/{id}(id=${curso.id})}">Editar</a>
-                    <a class="btn btn-danger" th:href="@{/cursos/deletar/{id}(id=${curso.id})}">Deletar</a>
-                </td>
+
             </tr>
         </tbody>
     </table>

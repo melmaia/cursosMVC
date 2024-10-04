@@ -21,38 +21,19 @@ public class CursoController {
     public String listarCursos(Model model) {
         List<Cursos> cursos = cursosService.listarCursos();
         model.addAttribute("cursos", cursos);
-        return "curso/lista"; // Ajustado para referenciar a lista.html na pasta curso
-    }
+        return "curso/lista"; }
 
     @GetMapping("/novo")
     public String mostrarFormularioDeNovoCurso(Model model) {
         model.addAttribute("curso", new Cursos());
-        return "curso/formulario"; // Ajustado para referenciar formulario.html na pasta curso
+        return "curso/formulario"; 
     }
 
     @PostMapping
     public String salvarCurso(@ModelAttribute Cursos cursos) {
         cursosService.salvarCurso(cursos);
-        return "redirect:/curso";
+        return "redirect:/cursos";
     }
 
-    @GetMapping("/editar/{id}")
-    public String mostrarFormularioDeEditarCurso(@PathVariable Long id, Model model) {
-        Cursos curso = cursosService.buscarCursoPorId(id);
-        model.addAttribute("curso", curso);
-        return "curso/formulario";
-    }
 
-    @PostMapping("/atualizar/{id}")
-    public String atualizarCurso(@PathVariable Long id, @ModelAttribute Cursos cursos) {
-        cursos.setId(id);
-        cursosService.salvarCurso(cursos);
-        return "redirect:/curso";
-    }
-
-    @GetMapping("/deletar/{id}")
-    public String deletarCurso(@PathVariable Long id) {
-        cursosService.deletarCurso(id);
-        return "redirect:/curso";
-    }
 }
