@@ -5,22 +5,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "curso")
 public class Cursos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String nome;
-    private String descricao;
-    private String instrutor;
-    private int duracao;
-    public void setId(Long id2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setId'");
-    }
-    
+    Long id;
+    String nome;
+    String descricao;
+    String instrutor;
+    int duracao;
 }
 
 

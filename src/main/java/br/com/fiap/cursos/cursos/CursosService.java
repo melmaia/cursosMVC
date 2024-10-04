@@ -9,22 +9,22 @@ import org.springframework.stereotype.Service;
 public class CursosService {
     
     @Autowired
-    private CursosRepository cursoRepository;
+    private CursosRepository cursosRepository;
 
     public List<Cursos> listarCursos() {
-        return cursoRepository.findAll();
+        return cursosRepository.findAll();
     }
 
-    public Cursos salvarCurso(Cursos curso) {
-        return cursoRepository.save(curso);
+    public Cursos salvarCurso(Cursos cursos) {
+        return cursosRepository.save(cursos);
     }
 
     public Cursos buscarCursoPorId(Long id) {
-        return cursoRepository.findById(id).orElse(null);
+        return cursosRepository.findById(id).orElse(null);
     }
 
     public void deletarCurso(Long id) {
-        cursoRepository.deleteById(id);
+        cursosRepository.deleteById(id);
     }
     
 }

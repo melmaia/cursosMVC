@@ -15,11 +15,11 @@ import org.springframework.ui.Model;
 @RequestMapping("/cursos")
 public class CursoController {
     @Autowired
-    private CursosService cursoService;
+    private CursosService cursosService;
 
     @GetMapping
     public String listarCursos(Model model) {
-        List<Cursos> cursos = cursoService.listarCursos();
+        List<Cursos> cursos = cursosService.listarCursos();
         model.addAttribute("cursos", cursos);
         return "curso/lista"; // Ajustado para referenciar a lista.html na pasta curso
     }
@@ -31,28 +31,28 @@ public class CursoController {
     }
 
     @PostMapping
-    public String salvarCurso(@ModelAttribute Cursos curso) {
-        cursoService.salvarCurso(curso);
-        return "redirect:/cursos";
+    public String salvarCurso(@ModelAttribute Cursos cursos) {
+        cursosService.salvarCurso(cursos);
+        return "redirect:/curso";
     }
 
     @GetMapping("/editar/{id}")
     public String mostrarFormularioDeEditarCurso(@PathVariable Long id, Model model) {
-        Cursos curso = cursoService.buscarCursoPorId(id);
+        Cursos curso = cursosService.buscarCursoPorId(id);
         model.addAttribute("curso", curso);
-        return "curso/formulario"; // Mantido como está, referenciando formulario.html
+        return "curso/formulario";
     }
 
     @PostMapping("/atualizar/{id}")
-    public String atualizarCurso(@PathVariable Long id, @ModelAttribute Cursos curso) {
-        curso.setId(id);
-        cursoService.salvarCurso(curso);
-        return "redirect:/cursos";
+    public String atualizarCurso(@PathVariable Long id, @ModelAttribute Cursos cursos) {
+        cursos.setId(id);
+        cursosService.salvarCurso(cursos);
+        return "redirect:/curso";
     }
 
     @GetMapping("/deletar/{id}")
     public String deletarCurso(@PathVariable Long id) {
-        cursoService.deletarCurso(id);
-        return "redirect:/cursos";
+        cursosService.deletarCurso(id);
+        return "redirect:/curso";
     }
 }
